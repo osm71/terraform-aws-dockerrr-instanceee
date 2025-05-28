@@ -45,7 +45,7 @@ tags = {
 
 dynamic "ingress" {
     for_each = var.docker-instance-ports
-    iterator = "port"
+    iterator = port
     content {
       from_port = port.value
       protocol = "tcp"
