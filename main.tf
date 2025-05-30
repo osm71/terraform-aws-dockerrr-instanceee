@@ -29,7 +29,7 @@ resource "aws_instance" "tf-module" {
     ami = data.aws_ami.amazon-linux-2023.id
     instance_type = var.instance_type
     key_name = var.key_name
-    vpc_security_group_ids = [ aws_security_group.tf-sg ]
+    vpc_security_group_ids = [ aws_security_group.tf-sg.id ]
     count = var.num_of_instance
     user_data = templatefile("${abspath(path.module)}/userdata.sh", {myserver= var.server-name})
     tags = {
